@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Christian Website - Ruins & Discoveries</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu-bar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="ruins.html">Ruins & Discoveries</a></li>
+        <li><a href="prophecies.html">Prophecies</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Archaeological Ruins & Discoveries</h1>
+    <div id="ruins-map" style="height: 400px;"></div>
+
+    <h2>Discovery Timeline</h2>
+    <ul id="discovery-timeline">
+      <li><strong>1890:</strong> Ruins of Megiddo discovered</li>
+      <li><strong>1920:</strong> Dead Sea Scrolls found</li>
+      <li><strong>1947:</strong> Qumran Caves explored</li>
+    </ul>
+  </main>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="scripts.js"></script>
+  <script>
+    const ruinsMap = L.map('ruins-map').setView([31.5, 35.5], 7);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(ruinsMap);
+
+    const ruins = [
+      { name: "Megiddo", coords: [32.586, 35.184] },
+      { name: "Qumran Caves", coords: [31.749, 35.464] },
+    ];
+
+    ruins.forEach(ruin => {
+      L.marker(ruin.coords).addTo(ruinsMap).bindPopup(ruin.name);
+    });
+  </script>
+</body>
+</html>
