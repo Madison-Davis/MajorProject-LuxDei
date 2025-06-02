@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Christian Website - Map</title>
+  <title>Interactive Map with Timeline</title>
   <link rel="stylesheet" href="styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="map_css.css" />
+  <script src="https://unpkg.com/leaflet-polylinedecorator@1.7.0/dist/leaflet.polylineDecorator.min.js"></script>
 </head>
 <body>
   <header>
@@ -26,22 +25,37 @@
 
   <main>
     <h1>Interactive Map</h1>
-    <div id="map" style="height: 500px;"></div>
+    <div class="map-ui">
+      <div class="map-options">
+        <button id="toggle-arch">Archaeological Items</button>
+        <button id="toggle-events">Major Events</button>
+        <button id="toggle-paths">Pathways</button>
+        <button id="toggle-travel">Jesus' Travels</button>
+      </div>
+
+      <div class="map-and-info">
+        <div id="map"></div>
+        <div id="info-box">Click a marker for details</div>
+      </div>
+
+      <div class="timeline-container">
+        <input type="range" id="timeline-slider" min="-1000" max="350" value="-1000" step="1">
+        <div class="tick-marks">
+          <span style="left: 0%;">1000 BC</span>
+          <span style="left: 16.6%;">800 BC</span>
+          <span style="left: 33.2%;">600 BC</span>
+          <span style="left: 49.8%;">400 BC</span>
+          <span style="left: 66.4%;">200 BC</span>
+          <span style="left: 83%;">0</span>
+          <span style="left: 100%;">300 AD</span>
+        </div>
+      <div class="year-label" id="year-label">1000 BC</div>
+      </div>
+    </div>
   </main>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="scripts.js"></script>
-  <script>
-    const map = L.map('map').setView([31.7683, 35.2137], 5); // Jerusalem
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    L.marker([31.7683, 35.2137])
-      .addTo(map)
-      .bindPopup('Jerusalem')
-      .openPopup();
-  </script>
+  <script src="map_js.js"></script>
 </body>
 </html>
+

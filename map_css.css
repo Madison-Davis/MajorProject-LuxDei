@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.menu-bar {
+  display: flex;
+  list-style: none;
+  padding: 10px;
+  background-color: #1e1e1e;
+  margin: 0;
+}
+
+.menu-bar li {
+  margin-right: 20px;
+}
+
+.menu-bar a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.map-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-options {
+  margin: 10px;
+}
+
+.map-options button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  background-color: #2b2b2b;
+  color: white;
+  border: 1px solid #444;
+  cursor: pointer;
+}
+
+.map-options button:hover {
+  background-color: #444;
+}
+
+.map-and-info {
+  display: flex;
+  width: 90%;
+  height: 500px;
+}
+
+#map {
+  flex: 3;
+  height: 100%;
+  border: 1px solid #333;
+}
+
+#info-box {
+  flex: 1;
+  padding: 10px;
+  background-color: #1e1e1e;
+  border-left: 1px solid #333;
+  overflow-y: auto;
+}
+
+.timeline-container {
+  width: 90%;
+  margin-top: 15px;
+  position: relative;
+}
+
+#timeline-slider {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.tick-marks span {
+  position: absolute;
+  top: 0;
+  font-size: 12px;
+  user-select: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: #ccc;
+}
+
+.year-label {
+  position: absolute;
+  right: 0;
+  top: -25px;
+  font-weight: bold;
+}
+
+
